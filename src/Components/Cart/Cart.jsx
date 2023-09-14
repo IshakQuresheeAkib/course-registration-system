@@ -23,7 +23,7 @@ const Cart = ({cart,creditHour,totalCreditHour,price}) => {
 export default Cart;
 
 Cart.propTypes = {
-    cart: PropTypes.object.isRequired,
+    cart: PropTypes.array.isRequired,
     creditHour: PropTypes.number.isRequired,
     totalCreditHour: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired

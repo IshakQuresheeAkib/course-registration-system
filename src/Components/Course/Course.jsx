@@ -2,9 +2,8 @@ import PropTypes from 'prop-types'
 import { FiDollarSign } from 'react-icons/fi';
 import { GoBook } from 'react-icons/go';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
-const Course = ({course,handleSelect,notify}) => {
+const Course = ({course,handleSelect}) => {
     const {credit,description,image,price,title} = course
     
     return (
@@ -19,10 +18,9 @@ const Course = ({course,handleSelect,notify}) => {
                 Credit: {credit}hr</p>
             </div>
             <button onClick={()=> {
-                handleSelect(course);
-                notify}} className="btn bg-[#2F80ED] normal-case btn-sm text-white">Select</button>
-            <button  className="btn btn-accent">hello</button>
-            <ToastContainer/>
+                handleSelect(course)}} className="btn bg-[#2F80ED] normal-case btn-sm text-white">Select</button>
+                <ToastContainer
+                />
         </div>
     );
 };
@@ -33,5 +31,4 @@ export default Course;
 Course.propTypes = {
     course: PropTypes.object.isRequired,
     handleSelect: PropTypes.func.isRequired,
-    notify: PropTypes.func.isRequired   
   }

@@ -2,8 +2,7 @@ import { useState } from "react"
 import Cart from "./Components/Cart/Cart"
 import Courses from "./Components/Courses/Courses"
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+  import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
@@ -12,7 +11,6 @@ function App() {
   const [creditHour,setCreditHour] = useState(20)
   const [totalCreditHour,setTotalCreditHour] = useState(0)
   const [price,setPrice] = useState(0);
-  const [notify,setNotify] = useState(false);
 
   const handleSelect = (course) => {
     if(!cart.includes(course)){
@@ -26,14 +24,21 @@ function App() {
       setCreditHour(remainingHour)
       setPrice(price + course.price)
     }else{  
-        setNotify( () =>{
-          toast("Wo so easy!")
-      })
+      
+      toast.error(' Wow so easy!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
     }
   }
   
 console.log(cart);
-
 
 
 
@@ -44,7 +49,6 @@ console.log(cart);
       <div className="flex justify-between md:items-start items-center lg:flex-row flex-col">
         <Courses
         handleSelect={handleSelect}
-        notify={notify}
         />
         <Cart
         cart={cart}
