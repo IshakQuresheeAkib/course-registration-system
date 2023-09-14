@@ -1,33 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react"
+import Cart from "./Components/Cart/Cart"
+import Courses from "./Components/Courses/Courses"
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  
+  const [cart,setCart] = useState([])
+  const [creditHour,setCreditHour] = useState(20)
+  const [totalCreditHour,setTotalCreditHour] = useState(0)
+  const [price,setPrice] = useState(0);
+  const [notify,setNotify] = useState(false);
+
+  const handleSelect = (course) => {
+    if(!cart.includes(course)){
+      const newCart = [...cart,course]
+      const remainingHour = creditHour - course.credit;
+      if (remainingHour < 0) {
+        return alert("Your Credit Hour isn't enough to buy!");
+      }
+      setTotalCreditHour(totalCreditHour + course.credit);
+      setCart(newCart)
+      setCreditHour(remainingHour)
+      setPrice(price + course.price)
+    }else{  
+        setNotify( () =>{
+          toast("Wo so easy!")
+      })
+    }
+  }
+  
+console.log(cart);
+
+
+
+
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <h1 className=" font-bold text-3xl text-center mb-7">Course Registration</h1>
+      <div className="flex justify-between md:items-start items-center lg:flex-row flex-col">
+        <Courses
+        handleSelect={handleSelect}
+        notify={notify}
+        />
+        <Cart
+        cart={cart}
+        creditHour={creditHour}
+        totalCreditHour={totalCreditHour}
+        price={price}
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
