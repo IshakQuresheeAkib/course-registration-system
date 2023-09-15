@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { FiDollarSign } from 'react-icons/fi';
 import { GoBook } from 'react-icons/go';
-import { ToastContainer } from 'react-toastify';
+import { Toaster } from 'react-hot-toast';
 
 const Course = ({course,handleSelect}) => {
     const {credit,description,image,price,title} = course
@@ -19,7 +19,7 @@ const Course = ({course,handleSelect}) => {
             </div>
             <button onClick={()=> {
                 handleSelect(course)}} className="btn bg-[#2F80ED] normal-case btn-sm text-white">Select</button>
-                <ToastContainer
+                <Toaster
                 />
         </div>
     );

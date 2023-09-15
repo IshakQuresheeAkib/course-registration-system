@@ -1,9 +1,8 @@
 import { useState } from "react"
 import Cart from "./Components/Cart/Cart"
 import Courses from "./Components/Courses/Courses"
-import { toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
-
+import toast from 'react-hot-toast';
+import { BiSolidErrorAlt } from 'react-icons/bi';
 
 function App() {
   
@@ -17,24 +16,14 @@ function App() {
       const newCart = [...cart,course]
       const remainingHour = creditHour - course.credit;
       if (remainingHour < 0) {
-        return alert("Your Credit Hour isn't enough to buy!");
+        return toast.error("You Haven't Sufficient Credit Hour!",{duration:2500});
       }
       setTotalCreditHour(totalCreditHour + course.credit);
       setCart(newCart)
       setCreditHour(remainingHour)
       setPrice(price + course.price)
     }else{  
-      
-      toast.error(' Wow so easy!', {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        });
+      toast.custom(<div className="bg-white py-8 px-4 rounded-lg shadow-md"> <BiSolidErrorAlt className="inline text-4xl text-error"></BiSolidErrorAlt> {course.title} course already added</div>,{duration:2500}); 
     }
   }
   
