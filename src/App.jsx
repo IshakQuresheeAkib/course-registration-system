@@ -21,7 +21,7 @@ function App() {
       setCart(newCart)
       setTotalCreditHour(totalCreditHour + course.credit);
       setCreditHour(remainingHour)
-      setPrice((price + course.price).toFixed(3))
+      setPrice((price + course.price))
     }else{  
       toast.custom(<div className="bg-white py-8 px-4 rounded-lg shadow-md"> <BiSolidErrorAlt className="inline text-4xl text-error"></BiSolidErrorAlt> {course.title} course already added!</div>,{duration:2000}); 
     }
