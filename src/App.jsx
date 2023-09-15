@@ -16,7 +16,7 @@ function App() {
       const newCart = [...cart,course]
       const remainingHour = creditHour - course.credit;
       if (remainingHour < 0) {
-        return toast.error("You Haven't Sufficient Credit Hour!",{duration:2500});
+        return toast.error("You Haven't Sufficient Credit Hour!",{duration:2400});
       }
       setTotalCreditHour(totalCreditHour + course.credit);
       setCart(newCart)
