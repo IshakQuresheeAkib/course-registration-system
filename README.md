@@ -26,5 +26,5 @@ Through this project, I  gained a deep understanding of React's core state manag
 </li>
 </ul>
 <ul>
-<li>Learners can see the remaining course details when acquiring the courses.If they did not have enough credit hour they will have an error,also if they want to select a courses couple of times it will give a notification that its already bought!</li>
+<li>Learners can see the remaining course credit when acquiring the courses.If they did not have enough credit hour they will have an error,also if they want to select a courses couple of times it will give a notification that its already bought!</li>
 </ul>
