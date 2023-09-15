@@ -16,14 +16,14 @@ function App() {
       const newCart = [...cart,course]
       const remainingHour = creditHour - course.credit;
       if (remainingHour < 0) {
-        return toast.error("You Haven't Sufficient Credit Hour!",{duration:2400});
+        return toast.error("You Haven't Sufficient Credit Hour!",{duration:2500});
       }
-      setTotalCreditHour(totalCreditHour + course.credit);
       setCart(newCart)
+      setTotalCreditHour(totalCreditHour + course.credit);
       setCreditHour(remainingHour)
       setPrice((price + course.price).toFixed(3))
     }else{  
-      toast.custom(<div className="bg-white py-8 px-4 rounded-lg shadow-md"> <BiSolidErrorAlt className="inline text-4xl text-error"></BiSolidErrorAlt> {course.title} course already added!</div>,{duration:2500}); 
+      toast.custom(<div className="bg-white py-8 px-4 rounded-lg shadow-md"> <BiSolidErrorAlt className="inline text-4xl text-error"></BiSolidErrorAlt> {course.title} course already added!</div>,{duration:2000}); 
     }
   }
   

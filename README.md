@@ -1,7 +1,7 @@
 # Course Registration Project
 
 
-<h2>State Management in the "Course Registration Project"</h2>
+<h2>State Management In My Project</h2>
 <hr><ul>
 <li>In my project i adopted a fundamental state management approach using only React's built-in state management capabilities. This approach allowed me to effectively manage the application's state within individual components without relying on external libraries or context providers.
 </li></ul>
