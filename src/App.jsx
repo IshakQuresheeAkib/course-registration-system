@@ -35,7 +35,7 @@ console.log(cart);
   return (
     <>
       <h1 className=" font-bold text-3xl text-center mb-7">Course Registration</h1>
-      <div className="flex justify-between md:items-start items-center lg:flex-row flex-col">
+      <div className="flex justify-center flex-wrap gap-8 md:items-start items-center lg:flex-row flex-col">
         <Courses
         handleSelect={handleSelect}
         />
