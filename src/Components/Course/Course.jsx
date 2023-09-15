@@ -7,7 +7,7 @@ const Course = ({course,handleSelect}) => {
     const {credit,description,image,price,title} = course
     
     return (
-        <div className='card p-4 bg-white space-y-2 w-80'>
+        <div className='card p-5 bg-white space-y-2 w-80'>
             <img src={image} alt="" />
             <h1 className='font-semibold text-lg'>{title}</h1>
             <p className=' text-xs text-[#1C1B1B99] font-normal h-24 '>{description}</p>
